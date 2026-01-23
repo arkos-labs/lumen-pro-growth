@@ -145,12 +145,12 @@ const LandingPage = () => {
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 order-1 md:order-2"
+                        className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 order-1 md:order-2 mb-8 md:mb-0"
                         id="main-content"
                     >
                         <div className="text-center mb-6">
                             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                                Audit Gratuit ⚡
+                                Audit Gratuit
                             </h2>
                             <p className="text-gray-600">
                                 Découvrez vos économies potentielles en 2 minutes
