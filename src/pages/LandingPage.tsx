@@ -76,14 +76,14 @@ const LandingPage = () => {
 
             {/* Main Content - Centered */}
             <main className="flex-1 flex items-center justify-center px-4 py-8 md:py-24">
-                <div className="w-full max-w-6xl flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
                     {/* Left Column - Value Proposition */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-white space-y-6"
+                        className="hidden md:block text-white space-y-6"
                     >
                         <div className="inline-block">
                             <span className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-4 py-2 rounded-full text-sm font-semibold">
