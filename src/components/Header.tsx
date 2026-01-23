@@ -80,13 +80,15 @@ const Header = () => {
 
           {/* Right Actions - Right aligned */}
           <div className="flex items-center gap-6">
-            <a
-              href="#audit-form"
-              onClick={(e) => { e.preventDefault(); scrollToSection("audit-form"); }}
-              className="hidden md:inline-flex items-center justify-center rounded-lg bg-blue-600 text-white hover:bg-blue-700 border-none px-6 h-10 text-sm font-bold transition-all shadow-md hover:shadow-lg"
-            >
-              Demander un audit gratuit
-            </a>
+            {location.pathname !== "/landing" && (
+              <a
+                href="#audit-form"
+                onClick={(e) => { e.preventDefault(); scrollToSection("audit-form"); }}
+                className="hidden md:inline-flex items-center justify-center rounded-lg bg-blue-600 text-white hover:bg-blue-700 border-none px-6 h-10 text-sm font-bold transition-all shadow-md hover:shadow-lg"
+              >
+                Demander un audit gratuit
+              </a>
+            )}
 
             {/* Mobile Toggle */}
             <button
@@ -134,13 +136,15 @@ const Header = () => {
 
             <div className="h-px w-full bg-gray-100 my-2" />
 
-            <a
-              href="#audit-form"
-              className="flex items-center justify-center w-full h-14 text-lg rounded-xl bg-blue-600 text-white font-bold"
-              onClick={(e) => { e.preventDefault(); scrollToSection("audit-form"); }}
-            >
-              Demander un audit gratuit
-            </a>
+            {location.pathname !== "/landing" && (
+              <a
+                href="#audit-form"
+                className="flex items-center justify-center w-full h-14 text-lg rounded-xl bg-blue-600 text-white font-bold"
+                onClick={(e) => { e.preventDefault(); scrollToSection("audit-form"); }}
+              >
+                Demander un audit gratuit
+              </a>
+            )}
           </nav>
         </div>
       )}

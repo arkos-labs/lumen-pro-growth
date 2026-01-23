@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+const Footer = lazy(() => import("@/components/Footer"));
 import {
     TrendingDown,
     ArrowRight,
@@ -284,7 +285,9 @@ const LandingPage = () => {
                 </div>
             </main>
 
-            <Footer />
+            <Suspense fallback={<div className="h-20 bg-gray-900"></div>}>
+                <Footer />
+            </Suspense>
         </div>
     );
 };
