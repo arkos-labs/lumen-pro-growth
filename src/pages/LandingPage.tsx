@@ -36,23 +36,40 @@ const LandingPage = () => {
         setIsSubmitting(true);
 
         try {
+            console.log("🚀 Envoi email à:", EMAIL_CONFIG.TO_EMAIL);
+
             const templateParams = {
-                to_email: EMAIL_CONFIG.TO_EMAIL,
+                // Variables standards qui marchent souvent mieux
+                user_name: `${formData.prenom} ${formData.nom}`,
+                user_email: formData.email,
+                message: `
+                    Nouveau lead depuis Landing Page Facebook:
+                    ----------------------------------------
+                    Nom: ${formData.prenom} ${formData.nom}
+                    Email: ${formData.email}
+                    Téléphone: ${formData.telephone}
+                    Entreprise: ${formData.entreprise}
+                    Surface: ${formData.surface || "Non renseignée"}
+                    
+                    Message client:
+                    ${formData.message}
+                `,
+                // Au cas où le template utilise les noms spécifiques
                 from_name: `${formData.prenom} ${formData.nom}`,
                 from_email: formData.email,
                 phone_number: formData.telephone,
                 company_name: formData.entreprise,
-                surface: formData.surface || "Non renseignée",
-                message: formData.message,
-                type_demande: "Audit Gratuit (Facebook Ads)"
+                reply_to: formData.email
             };
 
-            await emailjs.send(
+            const response = await emailjs.send(
                 EMAIL_CONFIG.SERVICE_ID,
                 EMAIL_CONFIG.TEMPLATE_ID,
                 templateParams,
                 EMAIL_CONFIG.PUBLIC_KEY
             );
+
+            console.log("✅ Email envoyé !", response);
 
             toast({
                 title: "✅ Demande envoyée avec succès !",
